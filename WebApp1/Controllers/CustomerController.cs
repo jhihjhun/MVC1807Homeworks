@@ -27,5 +27,38 @@ namespace WebApp1.Controllers
         {
             return View(viewModel);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(ViewModels.客戶資料.CreateViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            var customer = new Models.客戶資料
+            {
+                客戶名稱 = viewModel.客戶名稱,
+                統一編號 = viewModel.統一編號,
+                電話 = viewModel.電話,
+                傳真 = viewModel.傳真,
+                地址 = viewModel.地址,
+                Email = viewModel.Email,
+            };
+
+
+            using (_db = new Models.客戶資料Entities())
+            {
+                _db.客戶資料.Add(customer);
+                _db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
