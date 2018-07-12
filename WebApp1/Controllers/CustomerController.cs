@@ -15,7 +15,7 @@ namespace WebApp1.Controllers
 
             using (_db = new Models.客戶資料Entities())
             {
-                var data = _db.客戶資料.ToList();
+                var data = _db.客戶資料.Where(x => x.刪除 == false).ToList();
 
                 viewModel.CustomerList = data;
             }
@@ -123,6 +123,39 @@ namespace WebApp1.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewModels.客戶資料.DetailViewModel viewModel;
+
+            using (_db = new Models.客戶資料Entities())
+            {
+                var customer = _db.客戶資料.Find(id);
+
+                if (null == customer)
+                {
+                    return HttpNotFound();
+                }
+
+                viewModel = new ViewModels.客戶資料.DetailViewModel
+                {
+                    Id = customer.Id,
+                    客戶名稱 = customer.客戶名稱,
+                    統一編號 = customer.統一編號,
+                    電話 = customer.電話,
+                    傳真 = customer.傳真,
+                    地址 = customer.地址,
+                    Email = customer.Email
+                };
+            }
+
+            return View(viewModel);
         }
     }
 }
