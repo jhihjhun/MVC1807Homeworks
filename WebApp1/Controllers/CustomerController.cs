@@ -157,5 +157,53 @@ namespace WebApp1.Controllers
 
             return View(viewModel);
         }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewModels.客戶資料.DeleteViewModel viewModel;
+
+            using (_db = new Models.客戶資料Entities())
+            {
+                var customer = _db.客戶資料.Find(id);
+
+                if (null == customer)
+                {
+                    return HttpNotFound();
+                }
+
+                viewModel = new ViewModels.客戶資料.DeleteViewModel
+                {
+                    Id = customer.Id,
+                    客戶名稱 = customer.客戶名稱,
+                    統一編號 = customer.統一編號,
+                    電話 = customer.電話,
+                    傳真 = customer.傳真,
+                    地址 = customer.地址,
+                    Email = customer.Email
+                };
+            }
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            using (_db = new Models.客戶資料Entities())
+            {
+                var customer = _db.客戶資料.Find(id);
+
+                customer.刪除 = true;
+                _db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
