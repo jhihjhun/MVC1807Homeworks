@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81dcfc1baead42d298d0b04056307685" Name="Diagram1">
+      <Diagram DiagramId="f5b18f8fa83f4064b47acd2bb2626a70" Name="Diagram1">
         <EntityTypeShape EntityType="客戶資料Model.客戶資料" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="客戶資料Model.客戶銀行資訊" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="客戶資料Model.客戶聯絡人" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
