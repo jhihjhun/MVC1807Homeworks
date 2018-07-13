@@ -156,6 +156,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbsBaseController.cs" />
+    <Compile Include="Controllers\CustomerBankInfoController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -231,6 +232,11 @@
     <Compile Include="ViewModels\客戶資料\DetailViewModel.cs" />
     <Compile Include="ViewModels\客戶資料\ReadViewModel.cs" />
     <Compile Include="ViewModels\客戶資料\UpdateViewModel.cs" />
+    <Compile Include="ViewModels\客戶銀行資訊\CreateViewModel.cs" />
+    <Compile Include="ViewModels\客戶銀行資訊\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\客戶銀行資訊\DetailViewModel.cs" />
+    <Compile Include="ViewModels\客戶銀行資訊\ReadViewModel.cs" />
+    <Compile Include="ViewModels\客戶銀行資訊\UpdateViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -302,13 +308,17 @@
     <Content Include="Views\Customer\Update.cshtml" />
     <Content Include="Views\Customer\Detail.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\CustomerBankInfo\Index.cshtml" />
+    <Content Include="Views\CustomerBankInfo\Create.cshtml" />
+    <Content Include="Views\CustomerBankInfo\Update.cshtml" />
+    <Content Include="Views\CustomerBankInfo\Detail.cshtml" />
+    <Content Include="Views\CustomerBankInfo\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Helpers\ActionFilters\" />
     <Folder Include="Helpers\ValidationAttributes\" />
     <Folder Include="ViewModels\客戶聯絡人\" />
-    <Folder Include="ViewModels\客戶銀行資訊\" />
     <Folder Include="Views\AbsBase\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,48 @@
+﻿@model WebApp1.ViewModels.客戶銀行資訊.ReadViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>客戶Id</th>
+            <th>銀行名稱</th>
+            <th>銀行代碼</th>
+            <th>分行代碼</th>
+            <th>帳戶名稱</th>
+            <th>帳戶代碼</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.CustomerBankInfoList)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.客戶Id</td>
+                <td>@item.銀行名稱</td>
+                <td>@item.銀行代碼</td>
+                <td>@item.分行代碼</td>
+                <td>@item.帳戶名稱</td>
+                <td>@item.帳戶號碼</td>
+                <td>
+                    @Html.ActionLink("Edit", "Update", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Detail", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
