@@ -9,6 +9,22 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.TextBoxFor(model => model.Condition.客戶名稱, null, new { @class = "form-control", placeholder = "請輸入客戶名稱" })
+    </p>
+    <p>
+        @Html.TextBoxFor(model => model.Condition.統一編號, null, new { @class = "form-control", placeholder = "請輸入統一編號" })
+    </p>
+    <p>
+        @Html.TextBoxFor(model => model.Condition.電話, null, new { @class = "form-control", placeholder = "請輸入電話" })
+    </p>
+    <input type="submit" class="btn btn-default" value="Search" />
+}
+
 <table class="table">
     <thead>
         <tr>

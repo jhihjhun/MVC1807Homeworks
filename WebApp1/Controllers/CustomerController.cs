@@ -26,6 +26,30 @@ namespace WebApp1.Controllers
         [HttpPost]
         public ActionResult Index(ViewModels.客戶資料.ReadViewModel viewModel)
         {
+            using (_db = new Models.客戶資料Entities())
+            {
+                var query = _db.客戶資料.AsQueryable();
+
+                if (!string.IsNullOrEmpty(viewModel.Condition.客戶名稱))
+                {
+                    query = query.Where(x => x.客戶名稱.Contains(viewModel.Condition.客戶名稱));
+                }
+
+                if (!string.IsNullOrEmpty(viewModel.Condition.統一編號))
+                {
+                    query = query.Where(x => x.統一編號.Contains(viewModel.Condition.統一編號));
+                }
+
+                if (!string.IsNullOrEmpty(viewModel.Condition.電話))
+                {
+                    query = query.Where(x => x.電話.Contains(viewModel.Condition.電話));
+                }
+
+                query = query.Where(x => x.刪除 == false);
+
+                viewModel.CustomerList = query.OrderBy(x => x.Id).ToList();
+            }
+
             return View(viewModel);
         }
 
