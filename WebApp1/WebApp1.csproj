@@ -163,6 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ValidationAttributes\MobileFormatAttribute.cs" />
     <Compile Include="Models\CustomerData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -328,7 +329,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Helpers\ActionFilters\" />
-    <Folder Include="Helpers\ValidationAttributes\" />
     <Folder Include="Views\AbsBase\" />
   </ItemGroup>
   <ItemGroup>

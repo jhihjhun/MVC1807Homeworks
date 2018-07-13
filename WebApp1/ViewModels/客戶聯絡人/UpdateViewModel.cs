@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebApp1.Helpers.ValidationAttributes;
 
 namespace WebApp1.ViewModels.客戶聯絡人
 {
@@ -23,7 +24,7 @@ namespace WebApp1.ViewModels.客戶聯絡人
 
         public string Email { get; set; }
 
-        [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
+        [MobileFormat(ErrorMessage = "格式 : 0900-123456")]
         public string 手機 { get; set; }
 
         [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
