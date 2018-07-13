@@ -1,0 +1,42 @@
+﻿@model WebApp1.ViewModels.客戶聯絡人.ReadViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>客戶Id</th>
+            <th>職稱</th>
+            <th>姓名</th>
+            <th>Email</th>
+            <th>手機</th>
+            <th>電話</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CustomerContactList)
+        {
+            <tr>
+                <td>@item.客戶Id</td>
+                <td>@item.職稱</td>
+                <td>@item.姓名</td>
+                <td>@item.Email</td>
+                <td>@item.手機</td>
+                <td>@item.電話</td>
+                <td>
+                    @Html.ActionLink("Edit", "Update", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Detail", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

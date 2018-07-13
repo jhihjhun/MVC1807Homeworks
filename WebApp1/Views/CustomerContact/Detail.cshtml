@@ -1,0 +1,66 @@
+﻿@model WebApp1.ViewModels.客戶聯絡人.DetailViewModel
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>DetailViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.客戶Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.客戶Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.職稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.職稱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.姓名)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.姓名)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.手機)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.手機)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.電話)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.電話)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Update", new {  id = Model.Id  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

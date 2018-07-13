@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbsBaseController.cs" />
     <Compile Include="Controllers\CustomerBankInfoController.cs" />
+    <Compile Include="Controllers\CustomerContactController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,6 +228,11 @@
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\客戶聯絡人\CreateViewModel.cs" />
+    <Compile Include="ViewModels\客戶聯絡人\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\客戶聯絡人\DetailViewModel.cs" />
+    <Compile Include="ViewModels\客戶聯絡人\ReadViewModel.cs" />
+    <Compile Include="ViewModels\客戶聯絡人\UpdateViewModel.cs" />
     <Compile Include="ViewModels\客戶資料\CreateViewModel.cs" />
     <Compile Include="ViewModels\客戶資料\DeleteViewModel.cs" />
     <Compile Include="ViewModels\客戶資料\DetailViewModel.cs" />
@@ -313,12 +319,16 @@
     <Content Include="Views\CustomerBankInfo\Update.cshtml" />
     <Content Include="Views\CustomerBankInfo\Detail.cshtml" />
     <Content Include="Views\CustomerBankInfo\Delete.cshtml" />
+    <Content Include="Views\CustomerContact\Index.cshtml" />
+    <Content Include="Views\CustomerContact\Create.cshtml" />
+    <Content Include="Views\CustomerContact\Update.cshtml" />
+    <Content Include="Views\CustomerContact\Detail.cshtml" />
+    <Content Include="Views\CustomerContact\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Helpers\ActionFilters\" />
     <Folder Include="Helpers\ValidationAttributes\" />
-    <Folder Include="ViewModels\客戶聯絡人\" />
     <Folder Include="Views\AbsBase\" />
   </ItemGroup>
   <ItemGroup>
