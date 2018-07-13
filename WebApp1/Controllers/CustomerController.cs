@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebApp1.ExtendActionResults;
 
 namespace WebApp1.Controllers
 {
@@ -228,6 +232,46 @@ namespace WebApp1.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Export()
+        {
+            DataTable dt;
+
+            using (_db = new Models.客戶資料Entities())
+            {
+                var query = _db.客戶資料
+                    .Where(x => x.刪除 == false)
+                    .OrderBy(x => x.Id);
+
+                JArray jObjects = new JArray();
+
+                foreach (var item in query)
+                {
+                    var jo = new JObject
+                    {
+                        { "Id", item.Id },
+                        { "客戶名稱", item.客戶名稱 },
+                        { "統一編號", item.統一編號 },
+                        { "電話", item.電話 },
+                        { "傳真", item.傳真 },
+                        {"地址",item.地址 }
+                    };
+                    jObjects.Add(jo);
+                }
+
+                dt = JsonConvert.DeserializeObject<DataTable>(jObjects.ToString());
+            }
+
+            var exportFileName = string.Concat("客戶資料_", DateTime.Now.ToString("yyyyMMddHHmmss"), ".xlsx");
+
+
+            return new ExportExcelResult
+            {
+                SheetName = "客戶資料",
+                FileName = exportFileName,
+                ExportData = dt
+            };
         }
     }
 }
