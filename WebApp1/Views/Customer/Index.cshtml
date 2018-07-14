@@ -26,7 +26,7 @@
     <p>
         @Html.TextBoxFor(model => model.Condition.電話, null, new { @class = "form-control", placeholder = "請輸入電話" })
     </p>
-    <input type="submit" class="btn btn-default" value="Search" />
+    <input id="searchBtn" type="submit" class="btn btn-default" value="Search" />
 }
 
 <table class="table">
@@ -69,6 +69,11 @@
     <script>
 
         $(function () {
+
+            $('#searchBtn').on('click', function () {
+                $('input[name="PageIndex"]').val('1');
+            });
+
             $('.pagination>li>a[href]').each(function (i, item) {
                 var page = $(item).attr('href').replace('@Url.Action("Index", "Customer")?page=', '');
                 $(item).attr('href', '#').click(function () { postPage(page); });
@@ -76,6 +81,7 @@
         });
 
         function postPage(page) {
+
             if ($('form').length > 0) {
                 $('input[name="PageIndex"]').val(page);
                 $("form").submit();
