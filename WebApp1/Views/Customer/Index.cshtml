@@ -76,7 +76,7 @@
         });
 
         function postPage(page) {
-            if ($('form').size > 0) {
+            if ($('form').length > 0) {
                 $('input[name="PageIndex"]').val(page);
                 $("form").submit();
             }
