@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +22,7 @@ namespace WebApp1.Controllers
             {
                 var data = _db.客戶資料.Where(x => x.刪除 == false).ToList();
 
-                viewModel.CustomerList = data;
+                viewModel.CustomerList = data.OrderBy(x => x.Id).ToPagedList(1, 5);
             }
 
             return View(viewModel);
@@ -30,6 +31,8 @@ namespace WebApp1.Controllers
         [HttpPost]
         public ActionResult Index(ViewModels.客戶資料.ReadViewModel viewModel)
         {
+            viewModel.PageIndex = viewModel.PageIndex < 1 ? 1 : viewModel.PageIndex;
+
             using (_db = new Models.客戶資料Entities())
             {
                 var query = _db.客戶資料.AsQueryable();
@@ -51,7 +54,7 @@ namespace WebApp1.Controllers
 
                 query = query.Where(x => x.刪除 == false);
 
-                viewModel.CustomerList = query.OrderBy(x => x.Id).ToList();
+                viewModel.CustomerList = query.OrderBy(x => x.Id).ToPagedList(viewModel.PageIndex, 5);
             }
 
             return View(viewModel);

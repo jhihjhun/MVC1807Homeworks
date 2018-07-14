@@ -16,6 +16,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.PageIndex)
     <p>
         @Html.TextBoxFor(model => model.Condition.客戶名稱, null, new { @class = "form-control", placeholder = "請輸入客戶名稱" })
     </p>
@@ -42,7 +43,6 @@
         </tr>
     </thead>
     <tbody>
-
         @foreach (var item in Model.CustomerList)
         {
             <tr>
@@ -60,7 +60,26 @@
                 </td>
             </tr>
         }
-
     </tbody>
-
 </table>
+@Html.PagedListPager(Model.CustomerList, page => Url.Action("Index", new { page }))
+
+@section scripts
+{
+    <script>
+
+        $(function () {
+            $('.pagination>li>a[href]').each(function (i, item) {
+                var page = $(item).attr('href').replace('@Url.Action("Index", "Customer")?page=', '');
+                $(item).attr('href', '#').click(function () { postPage(page); });
+            });
+        });
+
+        function postPage(page) {
+            if ($('form').size > 0) {
+                $('input[name="PageIndex"]').val(page);
+                $("form").submit();
+            }
+        };
+    </script>
+}

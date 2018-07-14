@@ -8,9 +8,11 @@ namespace WebApp1.ViewModels.客戶資料
 {
     public class ReadViewModel
     {
+        public int PageIndex { get; set; }
+
         public SearchCondition Condition { get; set; }
 
-        public IList<Models.客戶資料> CustomerList { get; set; }
+        public IPagedList<Models.客戶資料> CustomerList { get; set; }
 
         public class SearchCondition
         {
