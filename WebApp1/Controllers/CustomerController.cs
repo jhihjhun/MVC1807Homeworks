@@ -182,7 +182,8 @@ namespace WebApp1.Controllers
                     電話 = customer.電話,
                     傳真 = customer.傳真,
                     地址 = customer.地址,
-                    Email = customer.Email
+                    Email = customer.Email,
+                    客戶聯絡人清單 = _db.客戶聯絡人.Where(x => x.客戶Id == customer.Id && x.刪除 == false).ToList()
                 };
             }
 

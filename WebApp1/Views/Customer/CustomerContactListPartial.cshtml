@@ -1,0 +1,30 @@
+﻿@model List<WebApp1.Models.客戶聯絡人>
+@{
+    Layout = null;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>客戶Id</th>
+            <th>職稱</th>
+            <th>姓名</th>
+            <th>Email</th>
+            <th>手機</th>
+            <th>電話</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.客戶Id</td>
+                <td>@item.職稱</td>
+                <td>@item.姓名</td>
+                <td>@item.Email</td>
+                <td>@item.手機</td>
+                <td>@item.電話</td>
+            </tr>
+        }
+    </tbody>
+</table>

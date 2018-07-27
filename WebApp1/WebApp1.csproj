@@ -345,11 +345,11 @@
     <Content Include="Views\CustomerContact\Update.cshtml" />
     <Content Include="Views\CustomerContact\Detail.cshtml" />
     <Content Include="Views\CustomerContact\Delete.cshtml" />
+    <Content Include="Views\Customer\CustomerContactListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Helpers\ActionFilters\" />
-    <Folder Include="Views\AbsBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

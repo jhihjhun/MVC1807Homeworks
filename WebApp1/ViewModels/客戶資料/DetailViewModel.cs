@@ -20,5 +20,7 @@ namespace WebApp1.ViewModels.客戶資料
         public string 地址 { get; set; }
 
         public string Email { get; set; }
+
+        public List<Models.客戶聯絡人> 客戶聯絡人清單 { get; set; }
     }
 }
