@@ -519,6 +519,7 @@
     <Content Include="Views\CustomerContact\Delete.cshtml" />
     <Content Include="Views\Customer\CustomerContactListPartial.cshtml" />
     <Content Include="Views\Shared\_DarshboardLayout.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

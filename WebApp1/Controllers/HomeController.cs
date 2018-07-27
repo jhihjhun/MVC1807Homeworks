@@ -26,5 +26,15 @@ namespace WebApp1.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login");
+        }
     }
 }
