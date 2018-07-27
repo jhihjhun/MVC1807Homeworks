@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Detail";
 }
-
+@section breadcrumb
+{
+    <a href="@Url.Action("Index","Customer")">客戶資料</a>
+}
 <h2>Detail</h2>
 
 <div>
@@ -65,4 +68,4 @@
 </p>
 <h2>客戶聯絡人清單</h2>
 <hr />
-@Html.Partial("CustomerContactListPartial",Model.客戶聯絡人清單)
+@Html.Partial("CustomerContactListPartial", Model.客戶聯絡人清單)
