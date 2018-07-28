@@ -249,6 +249,7 @@
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Home\LoginViewModel.cs" />
     <Compile Include="ViewModels\客戶聯絡人\CreateViewModel.cs" />
     <Compile Include="ViewModels\客戶聯絡人\DeleteViewModel.cs" />
     <Compile Include="ViewModels\客戶聯絡人\DetailViewModel.cs" />
@@ -520,6 +521,7 @@
     <Content Include="Views\Customer\CustomerContactListPartial.cshtml" />
     <Content Include="Views\Shared\_DarshboardLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\LoginError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -32,9 +32,34 @@ namespace WebApp1.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [HandleError(ExceptionType = typeof(ArgumentException), View = "LoginError")]
+        public ActionResult Login(ViewModels.Home.LoginViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            using (_db = new Models.客戶資料Entities())
+            {
+                var customer = _db.客戶資料.Where(x => x.帳號 == viewModel.UserName && x.密碼 == viewModel.Password).SingleOrDefault();
+
+                if (null == customer)
+                {
+                    throw new ArgumentException("登入失敗，帳號或密碼錯誤。");
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult Logout()
         {
             return RedirectToAction("Login");
         }
+
+
     }
 }
