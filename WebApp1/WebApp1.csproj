@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ActionFilters\ActionTimeLogFilter.cs" />
     <Compile Include="Helpers\ValidationAttributes\MobileFormatAttribute.cs" />
     <Compile Include="Models\CustomerData.Context.cs">
       <AutoGen>True</AutoGen>
@@ -525,7 +526,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\ActionFilters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
